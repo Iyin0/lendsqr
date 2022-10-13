@@ -1,0 +1,42 @@
+.welcome {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-card {
+    height: 300px;
+    width: 500px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: 2px 2px 33px 9px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 2px 2px 33px 9px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 2px 2px 33px 9px rgba(0, 0, 0, 0.22);
+
+    h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    div {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    a {
+        font-size: 20px;
+        font-weight: 500px;
+        text-decoration: none;
+        padding: 8px;
+        border: 1px solid rgb(42, 100, 144);
+        border-radius: 8px;
+        color: rgb(42, 100, 144);
+    }
+}
