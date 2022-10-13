@@ -1,28 +1,18 @@
 const express = require("express");
+const morgan = require('morgan');
+const accountRoutes = require('./router/accountRoutes')
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// app.get("/api", (req, res) => {
-//     res.json({ message: "Hello from the server!" })
-// })
+// middleware
+app.use(morgan('dev'))
 
-app.get("/api/", (req, res) => {
-    res.json({ message: "This is the welcome page" })
-})
+// account routes
+app.use('/api/accounts', accountRoutes)
 
-app.get("/api/login", (req, res) => {
-    res.json({ message: "This is the login page" })
-})
-
-app.get("/api/signup", (req, res) => {
-    res.json({ message: "This is the signup page" })
-})
-
-app.get("/api/home", (req, res) => {
-    res.json({ message: "This is the home page" })
-})
+// user routes
 
 app.listen(PORT, () => {
     console.log(`Server live on ${PORT}`)
