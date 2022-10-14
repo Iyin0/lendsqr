@@ -1,4 +1,4 @@
-class User {
+class Transaction {
     constructor(fname, acc_bal) {
         this.fname = fname;
         this.acc_bal = acc_bal

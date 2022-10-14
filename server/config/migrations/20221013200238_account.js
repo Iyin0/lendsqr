@@ -22,8 +22,9 @@ exports.up = (knex) => {
             table.foreign('user_id').references('user_id');   // foreign key
             table.timestamp('created_at').defaultTo(knex.fn.now());
             table.integer('balance').unsigned().notNullable();
+            table.integer('transaction_amount').unsigned().notNullable()
             table.string('transaction_type').notNullable()      // credit, debit, transfer
-            table.boolean('transaction_status').notNullable()   // successful or unsuccessful
+            table.string('transaction_status').notNullable()   // successful or unsuccessful
         })
 };
 

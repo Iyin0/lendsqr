@@ -1,7 +1,28 @@
+const Accounts = require('../model/accounts')
+
 exports.createUser = async (req, res, next) => {
-    res.send("User created")
+
+    try {
+        let newUser = new Accounts('Jacob', 'Zuma', 'jacobzuma@lendsqr.com', 'acobzuma').createAcount();
+        newUser.then((result) => {
+            res.status(200).send('New User created')
+        })
+    } catch (error) {
+        console.log(error)
+        next()
+    }
 }
 
 exports.getUser = async (req, res, next) => {
-    res.send("User 1 gotten")
+
+    try {
+        let user = new Accounts('Micheal', 'Anthony', 'michealanthony@lendsqr.com', 'michealanthony').getAccount();
+        user.then((result) => {
+            res.status(200).json({ result })
+        })
+    } catch (error) {
+        console.log(error)
+        next()
+    }
+
 }

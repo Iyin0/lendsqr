@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router();
-const user = require('../controller/userController')
+const user = require('../controller/transactionsController')
 
 router.put("/credit", user.addMoney);
 router.put("/transfer", user.sendMoney);
