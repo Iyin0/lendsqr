@@ -1,7 +1,8 @@
 const express = require("express");
 const morgan = require('morgan');
 const accountRoutes = require('./router/accountRoutes');
-const userRoutes = require('./router/userRoutes')
+const userRoutes = require('./router/userRoutes');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3001;
 

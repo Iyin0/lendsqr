@@ -8,16 +8,14 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      host: process.env.DB_HOST,
-      port: process.env.PORT
+      user: 'root',
+      password: 'Isaac1@345',
+      database: 'lendsqr',
     }
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
       database: 'my_db',
       user: 'username',
@@ -33,7 +31,7 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mysql',
     connection: {
       database: 'my_db',
       user: 'username',
