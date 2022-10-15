@@ -19,7 +19,6 @@ class Accounts {
                 password: this.password,
                 acc_balance: this.acc_balance
             }])
-        // .then((response) => { return response })
 
         return id
     }

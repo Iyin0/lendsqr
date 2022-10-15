@@ -1,5 +1,4 @@
 const Transaction = require('../model/transactions')
-const knex = require('../config/db')
 
 exports.addMoney = async (req, res, next) => {
 
