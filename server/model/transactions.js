@@ -12,10 +12,16 @@ class Transaction {
             .from('accounts')
             .where('user_id', id)
             .then((result) => {
-
                 return result
             })
-        return acc_bal.acc_balance
+
+        if (acc_bal === undefined) {
+            return 'Account Does not exist'
+        }
+
+        else {
+            return acc_bal.acc_balance
+        }
     }
 
     async updateBalance(new_acc) {
@@ -30,6 +36,15 @@ class Transaction {
 
 
         // return new_bal
+    }
+
+    async getRecipient(id) {
+        const [recipient] = await knex.select('*')
+            .from('accounts')
+            .where('user_id', id)
+            .then((row) => { return row })
+
+        return recipient
     }
 
     async deposit() {
@@ -47,7 +62,8 @@ class Transaction {
                     acc_balance: new_acc,
                     transaction_amount: this.amount,
                     transaction_type: 'Deposit',
-                    transaction_status: 'Successful'
+                    transaction_status: 'Successful',
+                    recipient: 'self'
                 }])
                 .then(() => {
                     this.updateBalance(new_acc)
@@ -81,9 +97,16 @@ class Transaction {
 
         let current_acc = await this.getBalance(this.user_id)
 
+        let verify_recipient = await this.getRecipient(this.recipient)
+
         if (this.user_id === this.recipient) {
 
             return 'You cannot transfer to yourself'
+        }
+        else if (verify_recipient === undefined) {     // to verify recipient
+
+            return 'Your recipient does not exist'
+
         }
         else {
             if (this.amount > 0) {
@@ -97,7 +120,8 @@ class Transaction {
                             acc_balance: new_acc,
                             transaction_amount: this.amount,
                             transaction_type: 'Transfer',
-                            transaction_status: 'Successful'
+                            transaction_status: 'Successful',
+                            recipient: this.recipient
                         }])
                         .then(() => {
                             this.updateBalance(new_acc)
@@ -134,7 +158,8 @@ class Transaction {
                         acc_balance: new_acc,
                         transaction_amount: this.amount,
                         transaction_type: 'Withdrawal',
-                        transaction_status: 'Successful'
+                        transaction_status: 'Successful',
+                        recipient: 'self'
                     }])
                     .then(() => {
                         this.updateBalance(new_acc)

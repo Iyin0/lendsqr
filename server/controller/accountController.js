@@ -30,10 +30,3 @@ exports.getUser = async (req, res, next) => {
     }
 
 }
-
-// {
-//     "fname": "Micheal",
-//     "lname": "Anthony",
-//     "email": "michealanthony@lendsqr.com",
-//     "pw": "michealanthony"
-// }

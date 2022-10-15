@@ -24,7 +24,7 @@ exports.up = (knex) => {
             table.integer('acc_balance').unsigned().notNullable();
             table.integer('transaction_amount').unsigned().notNullable()
             table.string('transaction_type').notNullable()      // credit, debit, transfer
-            // table.string('recipient').notNullable()      // transfer recipient
+            table.string('recipient').notNullable()      // transfer recipient
             table.string('transaction_status').notNullable()   // successful or unsuccessful
         })
 };

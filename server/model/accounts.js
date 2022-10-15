@@ -30,7 +30,12 @@ class Accounts {
             .where('last_name', this.lname)
             .then((row) => { return row })
 
-        return user
+        if (user === undefined) {
+            return 'user does not exist'
+        }
+        else {
+            return user
+        }
     }
 
 }
