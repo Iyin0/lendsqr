@@ -2,8 +2,10 @@ const Accounts = require('../model/accounts')
 
 exports.createUser = async (req, res, next) => {
 
+    let { fname, lname, email, pw } = req.body
+
     try {
-        let newUser = new Accounts('Jacob', 'Zuma', 'jacobzuma@lendsqr.com', 'acobzuma').createAcount();
+        let newUser = new Accounts(fname, lname, email, pw).createAcount();
         newUser.then((result) => {
             res.status(200).send('New User created')
         })
@@ -15,10 +17,12 @@ exports.createUser = async (req, res, next) => {
 
 exports.getUser = async (req, res, next) => {
 
+    let { fname, lname, email, pw } = req.body
+
     try {
-        let user = new Accounts('Micheal', 'Anthony', 'michealanthony@lendsqr.com', 'michealanthony').getAccount();
+        let user = new Accounts(fname, lname, email, pw).getAccount();
         user.then((result) => {
-            res.status(200).json({ result })
+            res.status(200).json(result)
         })
     } catch (error) {
         console.log(error)
@@ -26,3 +30,10 @@ exports.getUser = async (req, res, next) => {
     }
 
 }
+
+// {
+//     "fname": "Micheal",
+//     "lname": "Anthony",
+//     "email": "michealanthony@lendsqr.com",
+//     "pw": "michealanthony"
+// }

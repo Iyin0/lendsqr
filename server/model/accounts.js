@@ -6,27 +6,34 @@ class Accounts {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
-        this.password = password
+        this.password = password;
+        this.acc_balance = 0;
     }
 
-    createAcount() {
-        return knex('accounts')
+    async createAcount() {
+        const [id] = await knex('accounts')
             .insert([{
                 first_name: this.fname,
                 last_name: this.lname,
                 email: this.email,
-                password: this.password
+                password: this.password,
+                acc_balance: this.acc_balance
             }])
-            .then((response) => { return response })
+        // .then((response) => { return response })
+
+        return id
     }
 
-    getAccount() {
-        return knex.select('*')
+    async getAccount() {
+        const [user] = await knex.select('*')
             .from('accounts')
             .where('first_name', this.fname)
             .where('last_name', this.lname)
             .then((row) => { return row })
+
+        return user
     }
+
 }
 
 module.exports = Accounts

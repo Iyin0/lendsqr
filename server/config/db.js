@@ -19,28 +19,6 @@ const knex = require('knex')({
     pool: { min: 0, max: 7 }
 });
 
-// knex.select('first_name')
-//     .from('accounts')
-//     .where('user_id', 2)
-//     .then((res) => {
-//         console.log(res)
-//     })
-
-// const getAllUsers = (fname, lname) => {
-//     knex.select('*')
-//         .from('accounts')
-//         .where('first_name', fname)
-//         .where('last_name', lname)
-//         .then((res) => {
-//             return res
-//             // console.log(res)
-//         })
-// }
-
-// const user = getAllUsers('John', 'James')
-
-// console.log(user)
-
 // console.log(process.env.PORT)
 
 
