@@ -4,10 +4,10 @@ const knex = require('knex')({
     client: 'mysql',
     version: '2.18.1',
     connection: {
-        host: 'localhost',
-        user: 'root',
-        password: 'Iyinoluwa1@345',
-        database: 'lendsqr',
+        host: 'your host',
+        user: 'your user',
+        password: 'your password',
+        database: 'your db name',
     },
     // connection: {
     //     host: process.env.DB_HOST,

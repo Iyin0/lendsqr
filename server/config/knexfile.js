@@ -9,9 +9,9 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      user: 'root',
-      password: 'Iyinoluwa1@345',
-      database: 'lendsqr',
+      user: 'your user',
+      password: 'your password',
+      database: 'your db name',
     }
   },
 

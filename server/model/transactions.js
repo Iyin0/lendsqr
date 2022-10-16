@@ -51,7 +51,7 @@ class Transaction {
         // add the amount to existing balance
 
         // get the account balance from the accounts table
-        let current_acc = await this.getBalance(this.user_id)
+        let current_acc = await this.getBalance(this.user_id);
 
         if (this.amount > 0) {
             let new_acc = current_acc + this.amount

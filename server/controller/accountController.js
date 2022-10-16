@@ -17,10 +17,10 @@ exports.createUser = async (req, res, next) => {
 
 exports.getUser = async (req, res, next) => {
 
-    let { fname, lname, email, pw } = req.body
+    let { email, pw } = req.body
 
     try {
-        let user = new Accounts(fname, lname, email, pw).getAccount();
+        let user = new Accounts().getAccount(email, pw);
         user.then((result) => {
             res.status(200).json(result)
         })

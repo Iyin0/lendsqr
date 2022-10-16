@@ -23,11 +23,11 @@ class Accounts {
         return id
     }
 
-    async getAccount() {
+    async getAccount(email, password) {
         const [user] = await knex.select('*')
             .from('accounts')
-            .where('first_name', this.fname)
-            .where('last_name', this.lname)
+            .where('email', email)
+            .where('password', password)
             .then((row) => { return row })
 
         if (user === undefined) {
