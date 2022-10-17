@@ -7,6 +7,4 @@ router.post("/transfer", user.sendMoney);
 router.post("/withdraw", user.withdrawMoney);
 router.get("/balance", user.getBalance)
 
-// get single user
-
 module.exports = router

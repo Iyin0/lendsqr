@@ -7,7 +7,7 @@ const knex = require('knex')({
         host: 'your host',
         user: 'your user',
         password: 'your password',
-        database: 'your db name',
+        database: 'your db',
     },
     // connection: {
     //     host: process.env.DB_HOST,

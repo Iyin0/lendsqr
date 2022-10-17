@@ -11,7 +11,7 @@ module.exports = {
     connection: {
       user: 'your user',
       password: 'your password',
-      database: 'your db name',
+      database: 'your db',
     }
   },
 

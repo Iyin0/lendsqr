@@ -1,5 +1,4 @@
 const knex = require('../config/db')
-// const bycrypt = require('bycrypt')
 
 class Accounts {
     constructor(fname, lname, email, password) {
@@ -7,34 +6,44 @@ class Accounts {
         this.lname = lname;
         this.email = email;
         this.password = password;
-        this.acc_balance = 0;
     }
 
-    async createAcount() {
-        const [id] = await knex('accounts')
-            .insert([{
-                first_name: this.fname,
-                last_name: this.lname,
-                email: this.email,
-                password: this.password,
-                acc_balance: this.acc_balance
-            }])
-
-        return id
-    }
-
-    async getAccount(email, password) {
+    async getAccountByEmail(email) {
         const [user] = await knex.select('*')
             .from('accounts')
             .where('email', email)
-            .where('password', password)
             .then((row) => { return row })
 
-        if (user === undefined) {
-            return 'user does not exist'
+        return user
+    }
+
+    async getAccountById(id) {
+        const [user] = await knex.select('*')
+            .from('accounts')
+            .where('user_id', id)
+            .then((row) => { return row })
+
+        return user
+    }
+
+    async createAcount() {
+
+        const userExist = await this.getAccountByEmail(this.email)
+
+        if (userExist) {
+            return null
         }
         else {
-            return user
+            await knex('accounts')
+                .insert([{
+                    first_name: this.fname,
+                    last_name: this.lname,
+                    email: this.email,
+                    password: this.password,
+                    acc_balance: 0
+                }])
+
+            return "New user created"
         }
     }
 
