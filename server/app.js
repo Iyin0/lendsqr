@@ -27,7 +27,7 @@ app.use(
 
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: 'lendsqr-backend-assessment',
     resave: false,
     saveUninitialized: false
 }))

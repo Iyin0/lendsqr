@@ -26,7 +26,6 @@ exports.authenticateUser = async (req, res, next) => {
 
     await passport.authenticate('local',
         (err, user) => {
-            console.log(user)
             if (err) throw err
             if (!user) res.status(401).json({ message: 'User does not exist' })
             else {
