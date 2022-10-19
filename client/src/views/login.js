@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault()
 
         if (email !== null || pw !== null) {
-            await fetch("http://localhost:5000/api/accounts/login", {
+            await fetch("https://bilewu-iyin-lendsqr-be-test.herokuapp.com/api/accounts/login", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
