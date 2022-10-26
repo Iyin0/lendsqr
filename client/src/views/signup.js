@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../scss/signup.scss'
 
 const Signup = () => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [fname, setFname] = useState("")
     const [lname, setLname] = useState("")
     const [email, setEmail] = useState("")
